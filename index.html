@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Registration</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/account.css">
+
+	<script src="js/lib/angular/angular.min.js"></script>
+	<script src="js/lib/angular/angular-route.min.js"></script>
+	<script src="js/lib/angular/angular-animate.min.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase-messaging.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+	<script>
+  // Initialize Firebase
+  // *** Config hidden for security reasons ***
+  var config = {
+  	apiKey: "",
+  	authDomain: "",
+  	databaseURL: "",
+  	storageBucket: "",
+  	messagingSenderId: ""
+  };
+  firebase.initializeApp(config);
+  </script>
+
+ 	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/services/authentication.js"></script>
+	<script src="js/controllers/registration.js"></script>
+	<script src="js/controllers/success.js"></script>
+
+</head>
+<body>
+	<header>
+		<nav class="cf" ng-include="'views/nav.html'"></nav>
+	</header>
+	<div class="container">
+		<div class="userinfo" ng-show="currentUser" ng-controller="RegistrationController"><span class="userinfo">Hi {{currentUser.firstname}}</span>
+			<a ng-href="#/login" ng-click="logout()">Logout</a>
+		</div>
+		<main class="cf" ng-view>
+
+		</main>
+	</div><!-- container ends -->
+</body>
+  </html>
